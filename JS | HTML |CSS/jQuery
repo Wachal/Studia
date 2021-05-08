@@ -1,0 +1,60 @@
+zadanie 1:
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("b").each(function(i){
+    $(this).prepend(i=i+1+" ");
+  });
+});
+</script>
+</head>
+<body>
+
+<ul>
+    <li><b></b>Polska</li>
+    <li><b></b>Niemcy</li>
+    <li><b></b>Czechy</li>
+    <li><b></b>Słowacja</li>
+    <li><b></b>Rosja</li>
+    <li><b></b>Usa</li>
+    <li><b></b>Chiny</li>
+    <li><b></b>Turcja</li>
+</ul>
+
+</body>
+</html>
+
+------zadanie2
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script >
+$(document).ready(function(){
+  $("input").mouseleave(function(){
+    var el=document.getElementById("inp");
+    var doc=document.getElementById("p_id");
+    doc.innerHTML="Zmieniono text na: "+el.value;
+  });
+  $("input").change(function(){
+    var el=document.getElementById("inp");
+    var doc=document.getElementById("p_id");
+    doc.innerHTML="Zmieniono text na: "+ el.value;
+  });
+  
+});
+
+ </script>
+ 
+</head>
+<body>
+    <input id="inp" type="text" value="jakis">
+    <p id="p_id"> Zmieniono text na: </p>
+    
+</body>
+</html>
