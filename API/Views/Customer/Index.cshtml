@@ -1,0 +1,67 @@
+﻿@model List<net_core_lab5.Models.Customer>
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div class="text-center">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <p>
+        <a asp-action="RemoveAll">Remove all</a>
+    </p>
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        firstname
+                    </th>
+                    <th>
+                        lastname
+                    </th>
+                    <th>
+                        age
+                    </th>
+                    <th>
+                        address
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>
+                            @customer.Id
+                        </td>
+                        <td>
+                            @customer.FirstName
+                        </td>
+                        <td>
+                            @customer.LastName
+                        </td>
+                        <td>
+                            @customer.Age
+                        </td>
+                        <td>
+                            @customer.Address
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@customer.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@customer.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h2>brak dodanych danych</h2>
+    }
+</div>

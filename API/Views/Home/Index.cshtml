@@ -1,0 +1,58 @@
+﻿@model List<net_core_lab5.Models.Agent>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <p>
+        <a asp-action="RemoveAll">Remove all</a>
+    </p>
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        nazwa
+                    </th>
+                    <th>
+                        testnazwa
+                    </th>
+                    <th>
+                        options
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var agent in Model)
+                {
+                    <tr>
+                        <td>
+                            @agent.Id
+                        </td>
+                        <td>
+                            @agent.Name
+                        </td>
+                        <td>
+                            @agent.TestName
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@agent.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@agent.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h2>brak dodanych danych</h2>
+    }
+</div>
